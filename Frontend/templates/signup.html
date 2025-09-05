@@ -1,0 +1,146 @@
+{% load static %} {% load django_bootstrap5 %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup Page</title>
+    {% bootstrap_css %} {% bootstrap_javascript %}
+
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}" />
+  </head>
+  <body>
+    <div
+      class="container d-flex justify-content-center align-items-center min-vh-130"
+    >
+      <div class="card shadow-lg p-4 w-100" style="max-width: 750px">
+        <h3 class="text-center mb-4">Create Your Account</h3>
+
+        <form action="" method="POST">
+          {% csrf_token %}
+
+          <!-- Username & Email -->
+          <div class="row mb-3">
+            <div class="col-md-6 mb-3 mb-md-0">
+              <label for="username" class="form-label">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                name="username"
+                placeholder="Enter username"
+                required
+              />
+            </div>
+
+            <div class="col-md-6">
+              <label for="email" class="form-label">Email Address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                placeholder="Enter email"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Password -->
+          <!-- Password -->
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="password"
+              placeholder="Enter password"
+              required
+            />
+          </div>
+
+          <!-- Names -->
+          <div class="row mb-3">
+            <div class="col-md-6 mb-3 mb-md-0">
+              <label for="firstname" class="form-label">First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstname"
+                name="first_name"
+                placeholder="First name"
+                required
+              />
+            </div>
+            <div class="col-md-6">
+              <label for="lastname" class="form-label">Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastname"
+                name="last_name"
+                placeholder="Last name"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Age -->
+          <div class="mb-3">
+            <label for="age" class="form-label">Age</label>
+            <input
+              type="number"
+              class="form-control"
+              id="age"
+              name="age"
+              placeholder="Enter age"
+              required
+            />
+          </div>
+
+          <!-- User Role -->
+          <div class="mb-4">
+            <label for="role" class="form-label">User Role</label>
+            <select class="form-select" id="role" name="role" required>
+              <option value="" disabled selected>-- Select Role --</option>
+
+              {% if request.user.is_authenticated %} 
+              {% if request.user.role == 0 %}
+              <option value="0">Admin</option>
+              <option value="1">Manager</option>
+              <option value="2">Customer</option>
+              {% elif request.user.role == 1 %}
+              <option value="1">Manager</option>
+              <option value="2">Customer</option>
+              {% else %}
+              <option value="2">Customer</option>
+              {% endif %} {% else %}
+              <!-- If not logged in (like normal signup), you can show only customer -->
+              <option value="2">Customer</option>
+              {% endif %}
+            </select>
+          </div>
+
+          <!-- Submit -->
+          <div class="d-grid" id="submit-button">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              onclick="return confirm('Your details are correct?')"
+            >
+              Signup
+            </button>
+          </div>
+        </form>
+
+        <div class="text-center mt-3">
+          <a href="{% url 'login' %}" class="text-decoration-none fw-bold">
+            Already have an account? Login
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

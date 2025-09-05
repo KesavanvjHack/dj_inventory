@@ -1,0 +1,58 @@
+ body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #a9f3f8, #eeaaaa);
+        margin: 0;
+      }
+
+      table {
+        border: gray;
+        padding: 60px;
+        margin: 20px;
+      }
+
+      thead th {
+        position: sticky;
+        top: 0;
+        background: #343a40; /* matches table-dark */
+        color: white;
+        z-index: 10;
+      }
+
+      #navbar {
+        background: linear-gradient(to right, #70e296, #e65959);
+        font: 200;
+        font-family: sans-serif;
+        font-kerning: auto;
+        font-weight: 400;
+      }
+      #navbar:hover {
+        font: 200;
+        font-family: sans-serif;
+        font-kerning: auto;
+        font-weight:400;
+      }
+
+      #navbar .active {
+        color: #000000;
+        font: 400;
+        font-family: sans-serif;
+        font-kerning: auto;
+        font-weight: bolder;
+        
+      }
+
+      .text_p{
+        color: red;
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+      footer {
+        margin-top: 550px;
+        font-weight: bolder;
+        background: linear-gradient(to right, #e65959, #70e296);
+        padding: 1px;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+      }

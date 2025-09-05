@@ -1,0 +1,40 @@
+ body {
+        background: linear-gradient(to right, #4facfe, #00f2fe);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .card {
+        border-radius: 20px;
+        background: #ffffff;
+      }
+
+      h3 {
+        color: #0d6efd;
+        font-weight: bold;
+      }
+
+      #submit-button button {
+        border-radius: 10px;
+        padding: 12px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        transition: 0.3s ease;
+      }
+
+      #submit-button button:hover {
+        background-color: #0a58ca;
+        transform: scale(1.03);
+      }
+
+      select.form-select {
+        border-radius: 10px;
+      }
+
+      .form-control {
+        border-radius: 10px;
+      }
+
+      .error {
+        color: red;
+        font-size: 0.9rem;
+      }
