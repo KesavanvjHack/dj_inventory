@@ -43,7 +43,7 @@ def UpdateCustomers(request, id):
     return render(request, 'customers_add.html', context)
 
 
-# --------------------- Orders ---------------------
+# --------------------- Orders --------------------------------------
 
 @login_required(login_url='/')
 def OrdersAdd(request):
